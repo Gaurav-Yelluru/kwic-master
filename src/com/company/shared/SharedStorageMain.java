@@ -45,10 +45,11 @@ public class SharedStorageMain {
         // Remaining args are the keywords that should be ignored.
         setWordsToIgnore(args);
 
-        Scanner scanner = new Scanner(inputFile);
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            inputLines.add(new Line(line));
+        try (Scanner scanner = new Scanner(inputFile)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                inputLines.add(new Line(line));
+            }
         }
     }
 
