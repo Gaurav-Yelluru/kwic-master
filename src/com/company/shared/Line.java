@@ -9,6 +9,9 @@ import java.util.Arrays;
  */
 public class Line {
 
+    /**
+     * Converting a list to ArrayList to make it mutable.
+     */
     private ArrayList<String> words;
 
     public Line(String line) {
@@ -33,6 +36,9 @@ public class Line {
         return words.size();
     }
 
+    /**
+     * Removes the words at particular index passes as an arguement.
+     */
     public void removeWord(int index) {
         words.remove(index);
     }

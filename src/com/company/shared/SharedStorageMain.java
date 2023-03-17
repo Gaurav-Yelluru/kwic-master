@@ -16,6 +16,9 @@ public class SharedStorageMain {
     private List<CircularShift> circularShifts;
     private File inputFile;
 
+/**
+ * Introducing noise elimination in KWIC. "noiseWords" defines the list of words to be removed from the input.
+ */
     private List<String> noiseWords = Arrays.asList("a","an","the","and","or");
     private Set<String> noiseEliminate = new HashSet<>(noiseWords);
 
@@ -70,7 +73,9 @@ public class SharedStorageMain {
                 String startWord = line.getWord(wordIndex);
 
                 startWord = strip(startWord);
-
+                /**
+                * Removing the appropriate word from the input to perform noise elimination.
+                */
                 if(noiseEliminate.contains(startWord.toLowerCase())){
                     line.removeWord(wordIndex);
                     wordIndex--;

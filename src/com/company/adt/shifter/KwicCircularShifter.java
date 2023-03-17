@@ -17,6 +17,9 @@ public class KwicCircularShifter implements Shifter {
     private final Input input;
     private List<CircularShift> circularShifts;
 
+/**
+ * Introducing noise elimination in KWIC. "noiseWords" defines the list of words to be removed from the input.
+ */
     private List<String> noiseWords = Arrays.asList("a","an","the","and","or");
     private Set<String> noiseEliminate = new HashSet<>(noiseWords);
 
@@ -56,6 +59,10 @@ public class KwicCircularShifter implements Shifter {
             for (int wordIndex = 0; wordIndex < numberOfWords; wordIndex++) {
                 String startWord = line.getWord(wordIndex);
                 startWord = strip(startWord);
+
+                /**
+                * Removing the appropriate word from the input to perform noise elimination.
+                */
 
                 if(noiseEliminate.contains(startWord.toLowerCase())){
                     line.removeWord(wordIndex);

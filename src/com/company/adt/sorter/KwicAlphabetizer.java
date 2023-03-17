@@ -19,7 +19,6 @@ public class KwicAlphabetizer implements Sorter {
     /**
      * Sorts all the circular shifts in reverse lexicographical order.
      */
-     
     public void generateSortedList() {
         sortedCircularShifts = shifter.getCircularShifts();
         Collections.sort(sortedCircularShifts, Collections.reverseOrder());
