@@ -36,11 +36,11 @@ public class KwicInput implements Input {
 
         try {
             FileReader fr = new FileReader(filePath);
-            BufferedReader br = new BufferedReader(fr);
-
-            String inputLine;
-            while ((inputLine = br.readLine()) != null) {
-                lines.add(new Line(inputLine));
+            try (BufferedReader br = new BufferedReader(fr)) {
+                String inputLine;
+                while ((inputLine = br.readLine()) != null) {
+                    lines.add(new Line(inputLine));
+                }
             }
         } catch (IOException ioe) {
             System.out.println("IOException while reading file." + ioe.getStackTrace());
