@@ -1,6 +1,5 @@
 package com.company.adt.sorter;
 
-import com.company.adt.input.Input;
 import com.company.adt.shifter.CircularShift;
 import com.company.adt.shifter.Shifter;
 
